@@ -137,6 +137,9 @@ env.bak/
 venv.bak/
 .DS_Store
 
+# Python version files
+.python-version
+
 # Spyder project settings
 .spyderproject
 .spyproject
