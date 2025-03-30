@@ -56,10 +56,10 @@ def generate_2d_plot(
             plt.scatter(
                 cluster_data['x'], cluster_data['y'],
                 alpha=0.3, color=color_map[cluster_label], s=10,
-                label = "noise" if (cluster_label == -1) else f"Cluster {cluster_label}"
+                label = "noise" if (cluster_label == -1) else f"{cluster_label}"
             )
-        plt.legend()
-        plt.title(f"2D Scatter Plot for {base_file_name} (Color by Cluster)")
+        plt.legend(title="Cluster")
+        plt.title(f"2D Scatter Plot for {base_file_name}\n(Color by Cluster)")
     else:
         output_path = os.path.join(dir_path, f"{base_file_name}_2d_plot.png")
         plt.scatter(df["x"], df["y"], alpha=0.3, color="gray", s=10)
@@ -108,10 +108,10 @@ def generate_3d_plot(
             ax.scatter(
                 cluster_data["x"], cluster_data["y"], cluster_data["t"],
                 alpha=0.3, color=color_map[cluster_label], s=5,
-                label = "noise" if (cluster_label == -1) else f"Cluster {cluster_label}"
+                label = "noise" if (cluster_label == -1) else f"{cluster_label}"
             )
-        ax.legend()
-        ax.set_title(f"3D Scatter Plot for {base_file_name} (Colored by Cluster)")
+        ax.legend(loc="upper left", title="Cluster")
+        ax.set_title(f"3D Scatter Plot for {base_file_name}\n(Colored by Cluster)")
     else:
         output_path = os.path.join(dir_path, f"{base_file_name}_3d_plot.png")
         ax.scatter(df["x"], df["y"], df["t"], alpha=0.3, color="gray", s=5)
@@ -119,7 +119,7 @@ def generate_3d_plot(
 
     ax.set_xlabel('x')
     ax.set_ylabel('y')
-    ax.set_zlabel('z')
+    ax.set_zlabel('t')
     ax.set_box_aspect([1, 1, 1])
     ax.set_xlim(-10, 10)
     ax.set_ylim(-10, 10)

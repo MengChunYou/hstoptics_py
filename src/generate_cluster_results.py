@@ -30,6 +30,9 @@ def write_cluster_result(
     file_name = f"{base_file_name}_{data_dim}d_cluster_result_{algorithm_name}_param{param_order}.csv"
     file_path = os.path.join(f"{dir_path}{data_dim}d/", file_name)
 
+    # Ensure that all values in the 'cluster' column are integers
+    result_df['cluster'] = result_df['cluster'].astype(int)
+
     os.makedirs(f"{dir_path}{data_dim}d/", exist_ok=True)
     result_df.to_csv(file_path, index=False)
 
