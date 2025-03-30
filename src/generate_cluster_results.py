@@ -3,7 +3,7 @@ import os
 import logging
 import pandas as pd
 from src.clustering_algorithms.stdbscan import STDBSCAN
-from src.utils import read_all_simulated_data
+from src.utils import read_all_data
 
 
 def write_cluster_result(
@@ -27,9 +27,10 @@ def write_cluster_result(
         param_order: The order of parameters used for clustering.
         dir_path: The directory path where the output file will be saved.
     """
-    file_name = f"{base_file_name}_{data_dim}d_cluster_results_{algorithm_name}_param{param_order}.csv"
+    file_name = f"{base_file_name}_{data_dim}d_cluster_result_{algorithm_name}_param{param_order}.csv"
     file_path = os.path.join(f"{dir_path}{data_dim}d/", file_name)
 
+    os.makedirs(f"{dir_path}{data_dim}d/", exist_ok=True)
     result_df.to_csv(file_path, index=False)
 
     logging.info(f"cluster result written to {file_path}")
@@ -109,7 +110,7 @@ def generate_hstoptics_cluster_results(
 
 
 def generate_cluster_results():
-    data_df_list, base_file_name_list = read_all_simulated_data()
+    data_df_list, base_file_name_list = read_all_data(data_dir="simulated_data/")
 
     for data_df, base_file_name in zip(
         data_df_list,

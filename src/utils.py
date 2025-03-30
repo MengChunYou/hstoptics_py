@@ -4,16 +4,16 @@ import pandas as pd
 from typing import List
 
 
-def read_all_simulated_data(data_dir: str = 'simulated_data/') -> List[pd.DataFrame]:
+def read_all_data(data_dir: str) -> List[pd.DataFrame]:
     """
-    Read all simulated data and store into a list.
+    Read all data in dir and store into a list.
 
     Args:
         data_dir: The directory to read the files.
 
     Returns:
-        data_df_list: A list of DataFrame objects. Each DataFrame contains simulated data with x, y, and t.
-        base_file_name_list: base_file_name is like 'clustering_structure_1'.
+        data_df_list: A list of DataFrame objects.
+        base_file_name_list: base_file_name is base name of the source file, without extension.
     """
     data_df_list = []
     base_file_name_list = []
