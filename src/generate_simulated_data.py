@@ -193,9 +193,6 @@ def generate_clustering_structure(
 
 
 def generate_simulated_data():
-    # Set up logging to capture function execution details
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
-
     # Generate and write noise data (no clusters)
     noise_data = generate_noise_data(
         n_points=30,
