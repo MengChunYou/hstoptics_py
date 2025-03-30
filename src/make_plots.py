@@ -3,6 +3,7 @@ import os
 import logging
 import pandas as pd
 import matplotlib.pyplot as plt
+from src.utils import read_all_simulated_data
 
 
 def make_2d_plot(
@@ -89,10 +90,11 @@ def make_plots(data_dir: str = 'simulated_data/'):
         format="%(asctime)s - %(levelname)s - %(message)s"
     )
 
-    for file_name in os.listdir(data_dir):
-        base_file_name = os.path.splitext(file_name)[0]
-        data_path = os.path.join(data_dir, file_name)
-        simulated_data = pd.read_csv(data_path)
+    data_df_list, base_file_name_list = read_all_simulated_data(data_dir)
 
+    for simulated_data, base_file_name in zip(
+        data_df_list,
+        base_file_name_list
+    ):
         make_2d_plot(simulated_data, base_file_name)
         make_3d_plot(simulated_data, base_file_name)
