@@ -177,16 +177,16 @@ def generate_cluster_results():
     ):
         for data_dim in [2, 3]:
             # Generate and write cluster result using stdbscan algorithm
-            # algorithm_name = "stdbscan"
-            # kwargs = param_sets[algorithm_name][base_file_name][data_dim]
+            algorithm_name = "stdbscan"
+            kwargs = param_sets[algorithm_name][base_file_name][data_dim]
 
-            # cluster_result = generate_stdbscan_cluster_results(data_df, data_dim, **kwargs)
-            # write_cluster_result(
-            #     cluster_result,
-            #     base_file_name,
-            #     data_dim,
-            #     algorithm_name=algorithm_name
-            # )
+            cluster_result = generate_stdbscan_cluster_results(data_df, data_dim, **kwargs)
+            write_cluster_result(
+                cluster_result,
+                base_file_name,
+                data_dim,
+                algorithm_name=algorithm_name
+            )
 
             # Generate and write cluster result using hstoptics algorithm
             algorithm_name = "hstoptics"
