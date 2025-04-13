@@ -26,7 +26,7 @@ def write_simulated_data(
 
     simulated_data.to_csv(file_path, index=False)
 
-    logging.info(f"Simulated data written to {file_path}")
+    logging.info(f"Save simulated data: {file_path}")
 
 
 def density_to_n_points(

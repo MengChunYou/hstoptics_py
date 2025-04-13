@@ -21,5 +21,6 @@ def main():
     # Generate plots that color the data points by cluster labels
     generate_cluster_plots()
 
+
 if __name__ == "__main__":
     main()
